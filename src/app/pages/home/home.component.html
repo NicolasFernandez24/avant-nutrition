@@ -1,0 +1,293 @@
+<div class="min-h-screen bg-black text-white">
+
+  <!-- HEADER -->
+<header
+  class="fixed top-0 left-0 w-full z-50 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-white/5"
+>
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+    <!-- TOP -->
+    <div class="flex items-center justify-between py-3 gap-4">
+
+      <!-- LOGO -->
+      <a href="/" class="shrink-0">
+
+        <!-- Desktop -->
+        <img
+          src="assets/logo2.png"
+          alt="Avant Nutrition"
+          class="hidden md:block w-[190px]"
+        />
+
+        <!-- Mobile -->
+        <img
+          src="assets/logo-mobile.png"
+          alt="Avant Nutrition"
+          class="md:hidden w-[58px]"
+        />
+
+      </a>
+
+      <!-- SEARCH DESKTOP -->
+      <div class="hidden md:block flex-1 max-w-xl">
+        <div
+          class="flex rounded-xl overflow-hidden border border-white/10 bg-[#151515]"
+        >
+
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            placeholder="Buscar productos..."
+            class="w-full bg-transparent px-5 py-3 text-sm text-white placeholder:text-gray-500 outline-none"
+          />
+
+          <button
+            class="bg-[#A8FF00] text-black font-bold px-6 text-sm"
+          >
+            Buscar
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MOBILE SEARCH -->
+    <div class="pb-3 md:hidden">
+      <div
+        class="flex rounded-xl overflow-hidden border border-white/10 bg-[#151515]"
+      >
+
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Buscar..."
+          class="w-full bg-transparent px-4 py-2.5 text-sm text-white outline-none"
+        />
+
+        <button
+          class="bg-[#A8FF00] text-black font-bold px-4 text-sm"
+        >
+          OK
+        </button>
+
+      </div>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <nav
+      class="hidden md:flex justify-center gap-6 py-3 border-t border-white/5"
+    >
+
+      <button
+        *ngFor="let category of categories"
+        (click)="selectCategory(category)"
+        class="text-sm font-medium transition-all"
+        [ngClass]="
+          selectedCategory === category
+            ? 'text-[#A8FF00]'
+            : 'text-gray-300 hover:text-[#A8FF00]'
+        "
+      >
+        {{ category }}
+      </button>
+
+    </nav>
+
+  </div>
+</header>
+
+  <!-- SPACER -->
+  <div class="h-[170px]"></div>
+
+
+  <!-- HERO -->
+  <section
+    class="relative min-h-[80vh] flex items-center justify-center px-6 bg-cover bg-center"
+    style="
+      background-image:
+      linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+      url('assets/hero-bg.jpg');
+    "
+  >
+
+    <div class="text-center max-w-4xl">
+
+      <p class="text-[#A8FF00] font-bold tracking-[4px] text-sm mb-4">
+        SUPLEMENTACIÓN DEPORTIVA PREMIUM
+      </p>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+        SUPERÁ <br />
+        TUS LÍMITES
+      </h1>
+
+      <p class="text-gray-300 text-lg leading-8 mb-10">
+        Creatinas, proteínas y suplementos premium para potenciar
+        tu rendimiento y alcanzar resultados reales.
+      </p>
+
+      <a
+        href="#productos"
+        class="inline-block bg-[#A8FF00] text-black font-bold px-8 py-4 rounded-2xl"
+      >
+        Ver Productos
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTOS -->
+  <section
+    id="productos"
+    class="py-28 px-6"
+  >
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <p class="text-[#A8FF00] font-bold tracking-[4px] text-sm mb-3">
+          NUESTRO CATÁLOGO
+        </p>
+
+        <h2 class="text-4xl md:text-6xl font-black">
+          Productos Destacados
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+      >
+
+        <div
+          *ngFor="let product of filteredProducts"
+          class="bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+        >
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="w-full h-[280px] object-cover"
+          />
+
+          <div class="p-6">
+
+            <p class="text-[#A8FF00] text-xs font-bold uppercase mb-2">
+              {{ product.category }}
+            </p>
+
+            <h3 class="text-xl font-bold mb-3">
+              {{ product.name }}
+            </h3>
+
+            <p class="text-gray-400 text-sm leading-7 mb-5">
+              {{ product.description }}
+            </p>
+
+            <p class="text-2xl font-extrabold mb-5">
+              ${{ product.price.toLocaleString('es-AR') }}
+            </p>
+
+           <a
+  [routerLink]="['/producto', product.id]"
+  class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
+>
+  Ver Detalle
+</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BENEFICIOS -->
+  <section class="py-24 px-6">
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+        <h3 class="text-2xl font-bold mb-4">
+          Calidad Premium
+        </h3>
+
+        <p class="text-gray-400 leading-8">
+          Productos originales y marcas confiables.
+        </p>
+      </div>
+
+      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+        <h3 class="text-2xl font-bold mb-4">
+          Atención Personalizada
+        </h3>
+
+        <p class="text-gray-400 leading-8">
+          Te ayudamos a elegir el suplemento ideal.
+        </p>
+      </div>
+
+      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+        <h3 class="text-2xl font-bold mb-4">
+          Compra Rápida
+        </h3>
+
+        <p class="text-gray-400 leading-8">
+          Comprá directo por WhatsApp.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-[#050505] py-20 px-6">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <img
+        src="assets/logo-mobile.png"
+        alt="Avant Nutrition"
+        class="w-[90px] mx-auto mb-6"
+      />
+
+      <h2 class="text-3xl font-bold mb-3">
+        Avant Nutrition
+      </h2>
+
+      <p class="text-[#A8FF00] font-semibold mb-4">
+        Superá tus límites
+      </p>
+
+      <p class="text-gray-400 max-w-2xl mx-auto leading-8 mb-8">
+        Suplementación deportiva premium para atletas
+        que buscan resultados reales.
+      </p>
+
+      <a
+        href="https://wa.me/5491178283430"
+        target="_blank"
+        class="inline-block bg-[#A8FF00] text-black font-bold px-8 py-4 rounded-2xl"
+      >
+        Contactar Ahora
+      </a>
+
+      <div class="w-full h-px bg-white/5 my-10"></div>
+
+      <p class="text-gray-500 text-sm">
+        © 2026 Avant Nutrition — Todos los derechos reservados
+      </p>
+
+    </div>
+
+  </footer>
+
+</div>

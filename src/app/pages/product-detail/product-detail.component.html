@@ -1,0 +1,165 @@
+<div class="min-h-screen bg-black text-white py-20 px-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- VOLVER -->
+    <a
+      routerLink="/"
+      class="inline-flex items-center gap-2 text-[#A8FF00] font-semibold mb-10 hover:opacity-80 transition"
+    >
+      ← Volver a productos
+    </a>
+
+    <!-- PRODUCT DETAIL -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+      <!-- IMAGEN -->
+      <div
+        class="bg-[#111111] rounded-3xl border border-white/5 overflow-hidden"
+      >
+    <img
+  [src]="product.image"
+  [alt]="product.name"
+  (click)="openImage()"
+  class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] transition-all duration-300"
+/>
+      </div>
+
+      <!-- INFO -->
+      <div>
+
+        <p class="text-[#A8FF00] font-bold uppercase tracking-[3px] text-sm mb-3">
+          {{ product.category }}
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-black mb-5">
+          {{ product.name }}
+        </h1>
+
+        <p class="text-gray-300 text-lg leading-8 mb-8">
+          {{ product.description }}
+        </p>
+
+        <p class="text-4xl font-extrabold mb-8">
+          ${{ product.price.toLocaleString('es-AR') }}
+        </p>
+
+        <!-- INFO EXTRA -->
+        <div class="space-y-4 mb-10">
+
+          <div class="bg-[#0D0D0D] rounded-2xl p-5 border border-white/5">
+            <span class="text-gray-400">Marca:</span>
+            <p class="font-semibold mt-1">
+              {{ product.brand }}
+            </p>
+          </div>
+
+          <div class="bg-[#0D0D0D] rounded-2xl p-5 border border-white/5">
+            <span class="text-gray-400">Stock:</span>
+            <p class="font-semibold mt-1 text-[#A8FF00]">
+              {{ product.stock }}
+            </p>
+          </div>
+
+          <div class="bg-[#0D0D0D] rounded-2xl p-5 border border-white/5">
+            <span class="text-gray-400">Modo de uso:</span>
+            <p class="font-semibold mt-1">
+              {{ product.usage }}
+            </p>
+          </div>
+
+        </div>
+
+        <!-- BENEFICIOS -->
+        <div class="mb-10">
+
+          <h2 class="text-2xl font-bold mb-5">
+            Beneficios
+          </h2>
+
+          <div class="space-y-3">
+
+            <div
+              *ngFor="let benefit of product.benefits"
+              class="flex items-center gap-3"
+            >
+              <div
+                class="w-2 h-2 rounded-full bg-[#A8FF00]"
+              ></div>
+
+              <p class="text-gray-300">
+                {{ benefit }}
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- BOTÓN -->
+        <a
+          [href]="getWhatsappLink(product)"
+          target="_blank"
+          class="inline-block w-full text-center bg-[#A8FF00] text-black font-bold py-5 rounded-2xl text-lg hover:scale-[1.02] transition-all duration-300"
+        >
+          Comprar por WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCTOS SIMILARES -->
+    <div class="mt-28">
+
+      <h2 class="text-4xl font-black mb-12">
+        Productos Similares
+      </h2>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+
+        <div
+          *ngFor="let similar of similarProducts"
+          class="bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+        >
+
+          <img
+            [src]="similar.image"
+            [alt]="similar.name"
+            class="w-full h-[280px] object-cover"
+          />
+
+          <div class="p-6">
+
+            <p class="text-[#A8FF00] text-xs font-bold uppercase mb-2">
+              {{ similar.category }}
+            </p>
+
+            <h3 class="text-xl font-bold mb-3">
+              {{ similar.name }}
+            </h3>
+
+            <p class="text-2xl font-extrabold mb-5">
+              ${{ similar.price.toLocaleString('es-AR') }}
+            </p>
+
+            <a
+              [routerLink]="['/producto', similar.id]"
+              class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
+            >
+              Ver Detalle
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
