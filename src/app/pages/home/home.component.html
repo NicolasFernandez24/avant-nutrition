@@ -1,14 +1,18 @@
-<div class="min-h-screen bg-black text-white">
-
-  <div class="min-h-screen bg-black text-white">
+<div
+  class="min-h-screen text-white bg-cover bg-center bg-fixed bg-no-repeat pt-[95px] md:pt-[90px]"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.92)),
+      url('assets/hero-gym2.jpg');
+  "
+>
 
   <!-- HEADER -->
   <header
-    class="fixed top-0 left-0 w-full z-50 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-white/5"
+    class="fixed top-0 left-0 w-full z-50 bg-[#0B0B0B]/90 backdrop-blur-md border-b border-white/5"
   >
     <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-      <!-- TOP -->
       <div class="flex items-center justify-between py-2">
 
         <!-- LOGO -->
@@ -37,7 +41,7 @@
           <a
             href="https://wa.me/5491178283430"
             target="_blank"
-            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111] hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
+            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111]/80 hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
           >
             <i class="fab fa-whatsapp text-xl"></i>
           </a>
@@ -46,7 +50,7 @@
           <a
             href="https://www.instagram.com/avant.nutrition_/"
             target="_blank"
-            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111] hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
+            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111]/80 hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
           >
             <i class="fab fa-instagram text-xl"></i>
           </a>
@@ -58,20 +62,10 @@
     </div>
   </header>
 
-  <!-- SPACER -->
-  <div class="h-[95px] md:h-[90px]"></div>
-
   <!-- HERO -->
-  <section
-    class="relative min-h-[80vh] flex items-center justify-center px-6 bg-cover bg-center"
-    style="
-      background-image:
-      linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
-      url('assets/hero-bg.jpg');
-    "
-  >
+  <section class="relative min-h-[85vh] flex items-center justify-center px-6">
 
-    <div class="text-center max-w-4xl">
+    <div class="text-center max-w-4xl relative z-10">
 
       <p class="text-[#A8FF00] font-bold tracking-[4px] text-sm mb-4">
         SUPLEMENTACIÓN DEPORTIVA PREMIUM
@@ -89,7 +83,7 @@
 
       <a
         href="#productos"
-        class="inline-block bg-[#A8FF00] text-black font-bold px-8 py-4 rounded-2xl"
+        class="inline-block bg-[#A8FF00] text-black font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition"
       >
         Ver Productos
       </a>
@@ -98,113 +92,111 @@
 
   </section>
 
+  <!-- PRODUCTOS -->
+  <section
+    id="productos"
+    class="py-16 md:py-28 px-4 sm:px-5 md:px-6"
+  >
 
+    <div class="max-w-7xl mx-auto">
 
+      <!-- TITULO -->
+      <div class="text-center mb-8 md:mb-14">
+        <p class="text-[#A8FF00] font-bold tracking-[2px] md:tracking-[4px] text-[11px] md:text-sm mb-2 md:mb-3">
+          NUESTRO CATÁLOGO
+        </p>
 
-<!-- PRODUCTOS -->
-<section
-  id="productos"
-  class="py-20 md:py-28 px-4 md:px-6"
->
+        <h2 class="text-2xl sm:text-3xl md:text-6xl font-black leading-tight mb-5 md:mb-8">
+          Productos Destacados
+        </h2>
+      </div>
 
-  <div class="max-w-7xl mx-auto">
+      <!-- BUSCADOR -->
+      <div class="mb-8 md:mb-14 space-y-5 md:space-y-8">
 
-    <!-- TÍTULO -->
-    <div class="text-center mb-10 md:mb-14">
-      <p class="text-[#A8FF00] font-bold tracking-[3px] md:tracking-[4px] text-xs md:text-sm mb-3">
-        NUESTRO CATÁLOGO
-      </p>
+        <div class="w-full max-w-3xl mx-auto">
+          <div
+            class="flex rounded-2xl overflow-hidden border border-white/10 bg-[#111111]/90"
+          >
 
-      <h2 class="text-3xl md:text-6xl font-black mb-6 md:mb-8 leading-tight">
-        Productos Destacados
-      </h2>
-    </div>
+            <input
+              type="text"
+              [(ngModel)]="searchTerm"
+              placeholder="Buscar productos..."
+              class="w-full bg-transparent px-4 md:px-6 py-3 text-sm md:text-base text-white placeholder:text-gray-500 outline-none"
+            />
 
-    <!-- BUSCADOR + CATEGORÍAS -->
-    <div class="mb-10 md:mb-14 space-y-6 md:space-y-8">
+            <button
+              class="bg-[#A8FF00] text-black font-bold px-4 sm:px-5 md:px-8 text-xs sm:text-sm md:text-base shrink-0"
+            >
+              Buscar
+            </button>
 
-      <!-- SEARCH -->
-      <div class="w-full max-w-3xl mx-auto">
-        <div
-          class="flex rounded-2xl overflow-hidden border border-white/10 bg-[#111111]"
-        >
+          </div>
+        </div>
 
-          <input
-            type="text"
-            [(ngModel)]="searchTerm"
-            placeholder="Buscar productos..."
-            class="w-full bg-transparent px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-white placeholder:text-gray-500 outline-none"
-          />
+        <!-- CATEGORIAS -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
 
           <button
-            class="bg-[#A8FF00] text-black font-bold px-5 md:px-8 text-sm md:text-base shrink-0"
+            *ngFor="let category of categories"
+            (click)="selectCategory(category)"
+            class="px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 border"
+            [ngClass]="
+              selectedCategory === category
+                ? 'bg-[#A8FF00] text-black border-[#A8FF00]'
+                : 'border-white/10 text-white hover:border-[#A8FF00] hover:text-[#A8FF00]'
+            "
           >
-            Buscar
+            {{ category }}
           </button>
 
         </div>
-      </div>
-
-      <!-- CATEGORÍAS -->
-      <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-
-        <button
-          *ngFor="let category of categories"
-          (click)="selectCategory(category)"
-          class="px-4 md:px-6 py-2.5 md:py-3 rounded-2xl text-sm md:text-base font-semibold transition-all duration-300 border"
-          [ngClass]="
-            selectedCategory === category
-              ? 'bg-[#A8FF00] text-black border-[#A8FF00]'
-              : 'border-white/10 text-white hover:border-[#A8FF00] hover:text-[#A8FF00]'
-          "
-        >
-          {{ category }}
-        </button>
 
       </div>
 
-    </div>
-
-    <!-- GRID PRODUCTOS -->
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-    >
-
+      <!-- GRID -->
       <div
-        *ngFor="let product of filteredProducts"
-        class="bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8"
       >
 
-        <img
-          [src]="product.image"
-          [alt]="product.name"
-          class="w-full h-[240px] md:h-[280px] object-cover"
-        />
+        <div
+          *ngFor="let product of filteredProducts"
+          class="bg-[#111111]/90 border border-white/5 rounded-2xl md:rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+        >
 
-        <div class="p-5 md:p-6">
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="w-full h-[220px] sm:h-[240px] md:h-[280px] object-cover"
+          />
 
-          <p class="text-[#A8FF00] text-[11px] md:text-xs font-bold uppercase mb-2">
-            {{ product.category }}
-          </p>
+          <div class="p-4 sm:p-5 md:p-6">
 
-          <h3 class="text-lg md:text-xl font-bold mb-3 leading-tight">
-            {{ product.name }}
-          </h3>
+            <p class="text-[#A8FF00] text-[10px] sm:text-[11px] md:text-xs font-bold uppercase mb-2">
+              {{ product.category }}
+            </p>
 
-          <p class="text-gray-400 text-sm leading-6 md:leading-7 mb-5">
-            {{ product.description }}
-          </p>
+            <h3 class="text-base sm:text-lg md:text-xl font-bold mb-3 leading-tight">
+              {{ product.name }}
+            </h3>
 
-          <p class="text-xl md:text-2xl font-extrabold mb-5">
-            ${{ product.price.toLocaleString('es-AR') }}
-          </p>
+            <p class="text-gray-400 text-xs sm:text-sm leading-6 md:leading-7 mb-4 md:mb-5">
+              {{ product.description }}
+            </p>
 
-          <a
-            [routerLink]="['/producto', product.id]"
-            class="block text-center bg-[#A8FF00] text-black font-bold py-3 md:py-4 rounded-2xl text-sm md:text-base"
-          >
-            Ver Detalle
-          </a>
+            <p class="text-lg sm:text-xl md:text-2xl font-extrabold mb-4 md:mb-5">
+              ${{ product.price.toLocaleString('es-AR') }}
+            </p>
+
+            <a
+              [routerLink]="['/producto', product.id]"
+              class="block text-center bg-[#A8FF00] text-black font-bold py-3 md:py-4 rounded-xl md:rounded-2xl text-sm md:text-base"
+            >
+              Ver Detalle
+            </a>
+
+          </div>
 
         </div>
 
@@ -212,41 +204,35 @@
 
     </div>
 
-  </div>
-
-</section>
-
+  </section>
 
   <!-- BENEFICIOS -->
   <section class="py-24 px-6">
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+      <div class="bg-[#111111]/90 border border-white/5 rounded-3xl p-8">
         <h3 class="text-2xl font-bold mb-4">
           Calidad Premium
         </h3>
-
         <p class="text-gray-400 leading-8">
           Productos originales y marcas confiables.
         </p>
       </div>
 
-      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+      <div class="bg-[#111111]/90 border border-white/5 rounded-3xl p-8">
         <h3 class="text-2xl font-bold mb-4">
           Atención Personalizada
         </h3>
-
         <p class="text-gray-400 leading-8">
           Te ayudamos a elegir el suplemento ideal.
         </p>
       </div>
 
-      <div class="bg-[#0D0D0D] border border-white/5 rounded-3xl p-8">
+      <div class="bg-[#111111]/90 border border-white/5 rounded-3xl p-8">
         <h3 class="text-2xl font-bold mb-4">
           Compra Rápida
         </h3>
-
         <p class="text-gray-400 leading-8">
           Comprá directo por WhatsApp.
         </p>
@@ -256,9 +242,8 @@
 
   </section>
 
-
   <!-- FOOTER -->
-  <footer class="border-t border-white/5 bg-[#050505] py-20 px-6">
+  <footer class="border-t border-white/5 bg-black/80 py-20 px-6">
 
     <div class="max-w-5xl mx-auto text-center">
 
