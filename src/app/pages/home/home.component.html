@@ -1,105 +1,65 @@
 <div class="min-h-screen bg-black text-white">
 
+  <div class="min-h-screen bg-black text-white">
+
   <!-- HEADER -->
-<header
-  class="fixed top-0 left-0 w-full z-50 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-white/5"
->
-  <div class="max-w-7xl mx-auto px-4 md:px-6">
+  <header
+    class="fixed top-0 left-0 w-full z-50 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-white/5"
+  >
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-    <!-- TOP -->
-    <div class="flex items-center justify-between py-3 gap-4">
+      <!-- TOP -->
+      <div class="flex items-center justify-between py-2">
 
-      <!-- LOGO -->
-      <a href="/" class="shrink-0">
+        <!-- LOGO -->
+        <a href="/" class="shrink-0">
 
-        <!-- Desktop -->
-        <img
-          src="assets/logo2.png"
-          alt="Avant Nutrition"
-          class="hidden md:block w-[190px]"
-        />
-
-        <!-- Mobile -->
-        <img
-          src="assets/logo-mobile.png"
-          alt="Avant Nutrition"
-          class="md:hidden w-[58px]"
-        />
-
-      </a>
-
-      <!-- SEARCH DESKTOP -->
-      <div class="hidden md:block flex-1 max-w-xl">
-        <div
-          class="flex rounded-xl overflow-hidden border border-white/10 bg-[#151515]"
-        >
-
-          <input
-            type="text"
-            [(ngModel)]="searchTerm"
-            placeholder="Buscar productos..."
-            class="w-full bg-transparent px-5 py-3 text-sm text-white placeholder:text-gray-500 outline-none"
+          <!-- Desktop -->
+          <img
+            src="assets/logo2.png"
+            alt="Avant Nutrition"
+            class="hidden md:block w-[240px]"
           />
 
-          <button
-            class="bg-[#A8FF00] text-black font-bold px-6 text-sm"
+          <!-- Mobile -->
+          <img
+            src="assets/logo-mobile.png"
+            alt="Avant Nutrition"
+            class="md:hidden w-[75px]"
+          />
+
+        </a>
+
+        <!-- REDES -->
+        <div class="flex items-center gap-4">
+
+          <!-- WHATSAPP -->
+          <a
+            href="https://wa.me/5491178283430"
+            target="_blank"
+            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111] hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
           >
-            Buscar
-          </button>
+            <i class="fab fa-whatsapp text-xl"></i>
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a
+            href="https://www.instagram.com/avant.nutrition_/"
+            target="_blank"
+            class="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 bg-[#111111] hover:border-[#A8FF00] hover:text-[#A8FF00] transition-all duration-300"
+          >
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
 
         </div>
+
       </div>
 
     </div>
-
-    <!-- MOBILE SEARCH -->
-    <div class="pb-3 md:hidden">
-      <div
-        class="flex rounded-xl overflow-hidden border border-white/10 bg-[#151515]"
-      >
-
-        <input
-          type="text"
-          [(ngModel)]="searchTerm"
-          placeholder="Buscar..."
-          class="w-full bg-transparent px-4 py-2.5 text-sm text-white outline-none"
-        />
-
-        <button
-          class="bg-[#A8FF00] text-black font-bold px-4 text-sm"
-        >
-          OK
-        </button>
-
-      </div>
-    </div>
-
-    <!-- CATEGORÍAS -->
-    <nav
-      class="hidden md:flex justify-center gap-6 py-3 border-t border-white/5"
-    >
-
-      <button
-        *ngFor="let category of categories"
-        (click)="selectCategory(category)"
-        class="text-sm font-medium transition-all"
-        [ngClass]="
-          selectedCategory === category
-            ? 'text-[#A8FF00]'
-            : 'text-gray-300 hover:text-[#A8FF00]'
-        "
-      >
-        {{ category }}
-      </button>
-
-    </nav>
-
-  </div>
-</header>
+  </header>
 
   <!-- SPACER -->
-  <div class="h-[170px]"></div>
-
+  <div class="h-[95px] md:h-[90px]"></div>
 
   <!-- HERO -->
   <section
@@ -139,65 +99,112 @@
   </section>
 
 
-  <!-- PRODUCTOS -->
-  <section
-    id="productos"
-    class="py-28 px-6"
-  >
 
-    <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
-        <p class="text-[#A8FF00] font-bold tracking-[4px] text-sm mb-3">
-          NUESTRO CATÁLOGO
-        </p>
+<!-- PRODUCTOS -->
+<section
+  id="productos"
+  class="py-20 md:py-28 px-4 md:px-6"
+>
 
-        <h2 class="text-4xl md:text-6xl font-black">
-          Productos Destacados
-        </h2>
-      </div>
+  <div class="max-w-7xl mx-auto">
 
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-      >
+    <!-- TÍTULO -->
+    <div class="text-center mb-10 md:mb-14">
+      <p class="text-[#A8FF00] font-bold tracking-[3px] md:tracking-[4px] text-xs md:text-sm mb-3">
+        NUESTRO CATÁLOGO
+      </p>
 
+      <h2 class="text-3xl md:text-6xl font-black mb-6 md:mb-8 leading-tight">
+        Productos Destacados
+      </h2>
+    </div>
+
+    <!-- BUSCADOR + CATEGORÍAS -->
+    <div class="mb-10 md:mb-14 space-y-6 md:space-y-8">
+
+      <!-- SEARCH -->
+      <div class="w-full max-w-3xl mx-auto">
         <div
-          *ngFor="let product of filteredProducts"
-          class="bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+          class="flex rounded-2xl overflow-hidden border border-white/10 bg-[#111111]"
         >
 
-          <img
-            [src]="product.image"
-            [alt]="product.name"
-            class="w-full h-[280px] object-cover"
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            placeholder="Buscar productos..."
+            class="w-full bg-transparent px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-white placeholder:text-gray-500 outline-none"
           />
 
-          <div class="p-6">
+          <button
+            class="bg-[#A8FF00] text-black font-bold px-5 md:px-8 text-sm md:text-base shrink-0"
+          >
+            Buscar
+          </button>
 
-            <p class="text-[#A8FF00] text-xs font-bold uppercase mb-2">
-              {{ product.category }}
-            </p>
+        </div>
+      </div>
 
-            <h3 class="text-xl font-bold mb-3">
-              {{ product.name }}
-            </h3>
+      <!-- CATEGORÍAS -->
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4">
 
-            <p class="text-gray-400 text-sm leading-7 mb-5">
-              {{ product.description }}
-            </p>
+        <button
+          *ngFor="let category of categories"
+          (click)="selectCategory(category)"
+          class="px-4 md:px-6 py-2.5 md:py-3 rounded-2xl text-sm md:text-base font-semibold transition-all duration-300 border"
+          [ngClass]="
+            selectedCategory === category
+              ? 'bg-[#A8FF00] text-black border-[#A8FF00]'
+              : 'border-white/10 text-white hover:border-[#A8FF00] hover:text-[#A8FF00]'
+          "
+        >
+          {{ category }}
+        </button>
 
-            <p class="text-2xl font-extrabold mb-5">
-              ${{ product.price.toLocaleString('es-AR') }}
-            </p>
+      </div>
 
-           <a
-  [routerLink]="['/producto', product.id]"
-  class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
->
-  Ver Detalle
-</a>
+    </div>
 
-          </div>
+    <!-- GRID PRODUCTOS -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+    >
+
+      <div
+        *ngFor="let product of filteredProducts"
+        class="bg-[#111111] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+      >
+
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          class="w-full h-[240px] md:h-[280px] object-cover"
+        />
+
+        <div class="p-5 md:p-6">
+
+          <p class="text-[#A8FF00] text-[11px] md:text-xs font-bold uppercase mb-2">
+            {{ product.category }}
+          </p>
+
+          <h3 class="text-lg md:text-xl font-bold mb-3 leading-tight">
+            {{ product.name }}
+          </h3>
+
+          <p class="text-gray-400 text-sm leading-6 md:leading-7 mb-5">
+            {{ product.description }}
+          </p>
+
+          <p class="text-xl md:text-2xl font-extrabold mb-5">
+            ${{ product.price.toLocaleString('es-AR') }}
+          </p>
+
+          <a
+            [routerLink]="['/producto', product.id]"
+            class="block text-center bg-[#A8FF00] text-black font-bold py-3 md:py-4 rounded-2xl text-sm md:text-base"
+          >
+            Ver Detalle
+          </a>
 
         </div>
 
@@ -205,7 +212,9 @@
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
   <!-- BENEFICIOS -->
