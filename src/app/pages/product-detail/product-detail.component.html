@@ -17,12 +17,12 @@
       <div
         class="bg-[#111111] rounded-3xl border border-white/5 overflow-hidden"
       >
-    <img
-  [src]="product.image"
-  [alt]="product.name"
-  (click)="openImage()"
-  class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] transition-all duration-300"
-/>
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          (click)="openImage()"
+          class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] transition-all duration-300"
+        />
       </div>
 
       <!-- INFO -->
@@ -40,9 +40,22 @@
           {{ product.description }}
         </p>
 
-        <p class="text-4xl font-extrabold mb-8">
-          ${{ product.price.toLocaleString('es-AR') }}
-        </p>
+        <!-- PRECIOS CON DESCUENTO -->
+        <div class="mb-8">
+
+          <p class="text-gray-500 line-through text-lg">
+            ${{ product.oldPrice.toLocaleString('es-AR') }}
+          </p>
+
+          <p class="text-[#A8FF00] font-bold text-base mb-2">
+            🔥 {{ product.discount }}
+          </p>
+
+          <p class="text-4xl font-extrabold">
+            ${{ product.price.toLocaleString('es-AR') }}
+          </p>
+
+        </div>
 
         <!-- INFO EXTRA -->
         <div class="space-y-4 mb-10">
@@ -141,9 +154,22 @@
               {{ similar.name }}
             </h3>
 
-            <p class="text-2xl font-extrabold mb-5">
-              ${{ similar.price.toLocaleString('es-AR') }}
-            </p>
+            <!-- PRECIO SIMILARES -->
+            <div class="mb-5">
+
+              <p class="text-gray-500 line-through text-sm">
+                ${{ similar.oldPrice.toLocaleString('es-AR') }}
+              </p>
+
+              <p class="text-[#A8FF00] font-bold text-sm mb-1">
+                🔥 {{ similar.discount }}
+              </p>
+
+              <p class="text-2xl font-extrabold">
+                ${{ similar.price.toLocaleString('es-AR') }}
+              </p>
+
+            </div>
 
             <a
               [routerLink]="['/producto', similar.id]"

@@ -3,8 +3,13 @@ export interface Product {
   name: string;
   category: string;
   image: string;
-  price: number;
+
+  price: number; 
+  oldPrice: number; 
+  discount: string; 
+
   description: string;
+
   benefits: string[];
   usage: string;
   brand: string;

@@ -92,6 +92,185 @@
 
   </section>
 
+<!-- COMBOS PREMIUM -->
+<section class="py-16 md:py-24 px-4 sm:px-5 md:px-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- TITULO -->
+    <div class="text-center mb-10 md:mb-14">
+
+      <p class="text-[#A8FF00] font-bold tracking-[2px] md:tracking-[4px] text-[11px] md:text-sm mb-2 md:mb-3">
+        OFERTAS ESPECIALES
+      </p>
+
+      <h2 class="text-2xl sm:text-3xl md:text-6xl font-black leading-tight">
+        Combos Premium
+      </h2>
+
+    </div>
+
+    <!-- GRID COMBOS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+      <!-- COMBO PERFORMANCE -->
+      <div
+        class="bg-[#111111]/90 border border-[#A8FF00]/20 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+      >
+
+        <img
+          src="assets/combos/combo-performance.jpg"
+          alt="Combo Performance"
+          class="w-full h-[260px] object-cover"
+        />
+
+        <div class="p-6 md:p-8">
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-3">
+            MÁS VENDIDO 🔥
+          </p>
+
+          <h3 class="text-2xl font-black mb-5">
+            Combo Performance
+          </h3>
+
+          <div class="space-y-3 text-gray-300 mb-6">
+            <p>✔ Whey One Fit 2LB</p>
+            <p>✔ Creatina One Fit</p>
+            <p class="text-[#A8FF00] font-bold">
+              🎁 Magnesio GRATIS
+            </p>
+          </div>
+
+          <p class="text-gray-500 line-through text-sm">
+            $56.700
+          </p>
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-1">
+            🔥 12% OFF
+          </p>
+
+          <p class="text-3xl font-extrabold mb-6">
+            $49.900
+          </p>
+
+          <a
+  [href]="getComboWhatsappLink('Combo Performance', 49900)"
+  target="_blank"
+  class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
+>
+  Pedir Combo
+</a>
+
+        </div>
+
+      </div>
+
+      <!-- COMBO FUERZA -->
+      <div
+        class="bg-[#111111]/90 border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+      >
+
+        <img
+          src="assets/combos/combo-fuerza.jpg"
+          alt="Combo Fuerza"
+          class="w-full h-[260px] object-cover"
+        />
+
+        <div class="p-6 md:p-8">
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-3">
+            ALTO RENDIMIENTO
+          </p>
+
+          <h3 class="text-2xl font-black mb-5">
+            Combo Fuerza
+          </h3>
+
+          <div class="space-y-3 text-gray-300 mb-6">
+            <p>✔ Creatina One Fit</p>
+            <p>✔ Pre Workout One Fit</p>
+          </div>
+
+          <p class="text-gray-500 line-through text-sm">
+            $34.800
+          </p>
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-1">
+            🔥 8% OFF
+          </p>
+
+          <p class="text-3xl font-extrabold mb-6">
+            $31.900
+          </p>
+
+         <a
+  [href]="getComboWhatsappLink('Combo Fuerza', 31900)"
+  target="_blank"
+  class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
+>
+  Pedir Combo
+</a>
+
+        </div>
+
+      </div>
+
+      <!-- COMBO PREMIUM -->
+      <div
+        class="bg-[#111111]/90 border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300"
+      >
+
+        <img
+          src="assets/combos/combo-premium.jpg"
+          alt="Combo Premium"
+          class="w-full h-[260px] object-cover"
+        />
+
+        <div class="p-6 md:p-8">
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-3">
+            NIVEL PRO
+          </p>
+
+          <h3 class="text-2xl font-black mb-5">
+            Combo Premium
+          </h3>
+
+          <div class="space-y-3 text-gray-300 mb-6">
+            <p>✔ Whey Gold 2LB</p>
+            <p>✔ Creatina Gold 300G</p>
+          </div>
+
+          <p class="text-gray-500 line-through text-sm">
+            $77.800
+          </p>
+
+          <p class="text-[#A8FF00] font-bold text-sm mb-1">
+            🔥 8% OFF
+          </p>
+
+          <p class="text-3xl font-extrabold mb-6">
+            $71.900
+          </p>
+
+         <a
+  [href]="getComboWhatsappLink('Combo Premium', 71900)"
+  target="_blank"
+  class="block text-center bg-[#A8FF00] text-black font-bold py-4 rounded-2xl"
+>
+  Pedir Combo
+</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   <!-- PRODUCTOS -->
   <section
     id="productos"
@@ -185,9 +364,21 @@
               {{ product.description }}
             </p>
 
-            <p class="text-lg sm:text-xl md:text-2xl font-extrabold mb-4 md:mb-5">
-              ${{ product.price.toLocaleString('es-AR') }}
-            </p>
+         <div class="mb-5">
+
+  <p class="text-gray-500 line-through text-sm">
+    ${{ product.oldPrice.toLocaleString('es-AR') }}
+  </p>
+
+  <p class="text-[#A8FF00] font-bold text-sm mb-1">
+    🔥 {{ product.discount }}
+  </p>
+
+  <p class="text-2xl md:text-3xl font-extrabold">
+    ${{ product.price.toLocaleString('es-AR') }}
+  </p>
+
+</div>
 
             <a
               [routerLink]="['/producto', product.id]"
